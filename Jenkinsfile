@@ -5,11 +5,23 @@ pipeline{
         }
     }
     stages {
+    
+      stage("SCM"){
+            steps{
+               echo "Realizando el SCM"
+             checkout SCM
+        }
+    
         stage("Build"){
             steps{
                echo "Realizando el Build"
-            }
+               script{
+               echo "****MAVEN BUILD****"
+                 bat "mvn clean package -P dev -DskipTests"
+                 
+               }
         }
+     }
          
        stage("Ejecución de test en paralelo"){
           parallel{
