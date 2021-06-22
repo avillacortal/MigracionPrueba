@@ -1,5 +1,4 @@
 
-
 pipeline{
     agent{
         node{
@@ -13,7 +12,7 @@ pipeline{
                echo "Realizando el SCM"
              checkout scm
 			}
-        }
+       }
     
         stage("Build"){
             steps{
@@ -32,9 +31,21 @@ pipeline{
             stage ("Test unit") {
                 steps{
                 echo "Realizando test unit"
+               	  script {
+                   
+                   echo "******MAVEN BUILD****"
+                   bat "mvn package"
+                  }      
+                } 
+                post {
                 
-                }   
-            }
+                	success{
+                	    junit 'target/surefire-reports/**/*.xml'
+                	}
+                }
+              
+            }     
+           
             stage ("Test integración/componente") {
                 steps{
                 echo "Realizando test componentes"
