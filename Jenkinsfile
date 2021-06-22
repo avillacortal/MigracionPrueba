@@ -9,8 +9,12 @@ pipeline{
       stage("SCM"){
             steps{
                echo "Realizando el SCM"
-             checkout SCM
+          
+           checkout SCM
+
+            }
         }
+
     
         stage("Build"){
             steps{
