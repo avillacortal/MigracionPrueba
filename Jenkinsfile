@@ -56,7 +56,7 @@ pipeline{
                           
                              )
                              
-                           publishHTML (target: [
+                           publishHTML ([allowMissing: true,
                             alwaysLinkToLastBuild: true,
 							keepAll: false,
 							reportDir: 'target/jacoco-report/',
@@ -76,7 +76,6 @@ pipeline{
 						
 						
 			}
-
             stage ("Test integración/componente") {
                 steps{
                 echo "Realizando test componentes"
