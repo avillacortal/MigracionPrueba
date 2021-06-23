@@ -62,7 +62,7 @@ pipeline{
 							reportDir: 'target/jacoco-report/',
           
                             reportFiles: 'index.html',
-                            reportName: 'Code coverage Report'
+                            reportName: 'Code coverage Report',
 							reportTitles: 'Code coverage Report'
                             ]) 
                            junit(
