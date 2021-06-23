@@ -44,7 +44,38 @@ pipeline{
                 }
   
           }    
+        
+          stage('Build Reports'){
            
+                        steps {
+                             jacoco(
+                             	 execPattern: 'target/**/*.exec',
+                             	 classPattern: 'target/classes',
+                             	sourcePattern: 'src',
+                             	 exclusionPattern: '**/*Test*.class'
+                          
+                             )
+                             
+                           publishHTML (target: [
+                            allowMissing: false,
+                            alwaysLinkToLastBuild: false,
+                            keepAll: true,
+                            reportDir: 'coverage',
+                            reportFiles: 'index.html',
+                            reportName: "RCov Report"
+                            ]) 
+                           junit(
+                           
+                           allowEmptyResults: true,
+                           testResults: '**TEST/-*.xml'
+                           
+                           )
+                        
+                  }
+						
+						
+			}
+
             stage ("Test integración/componente") {
                 steps{
                 echo "Realizando test componentes"
