@@ -59,12 +59,12 @@ pipeline{
                           
                              )
                              
-                           publishHTML([allowMissing:true,
+                           publishHTML([allowMissing: true,
                                alwaysLinkToLastBuild: true,
                                keepAll:false,
-                               reportDir:'target/jacoco/-report/',
+                               reportDir:'target/jacoco-report/',
                                reportFiles: 'index.html',
-                               reportName: Code coverage Report,
+                               reportName: 'Code coverage Report',
                                reportTitles:'Code Coverage Report'
                            ])  
                         
