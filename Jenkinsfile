@@ -23,7 +23,7 @@ pipeline{
                }
             }
        }
-         
+    }  
        stage("Ejecución de test en paralelo"){
           parallel{
               
