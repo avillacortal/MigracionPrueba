@@ -23,7 +23,7 @@ pipeline{
                }
             }
        }
-    }  
+      
        stage("Ejecución de test en paralelo"){
           parallel{
               
@@ -111,8 +111,8 @@ pipeline{
                 echo "Realizando Deploy en el ambiente desarrollo"
             }
         }
-        
-        
+    
+      }
     }    
 
    
