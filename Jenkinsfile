@@ -57,17 +57,18 @@ pipeline{
                              )
                              
                            publishHTML (target: [
-                            allowMissing: false,
-                            alwaysLinkToLastBuild: false,
-                            keepAll: true,
-                            reportDir: 'coverage',
+                            alwaysLinkToLastBuild: true,
+							keepAll: false,
+							reportDir: 'target/jacoco-report/',
+          
                             reportFiles: 'index.html',
-                            reportName: "RCov Report"
+                            reportName: 'Code coverage Report'
+							reportTitles: 'Code coverage Report'
                             ]) 
                            junit(
                            
                            allowEmptyResults: true,
-                           testResults: '**TEST/-*.xml'
+                           testResults: '**TEST-*.xml'
                            
                            )
                         
