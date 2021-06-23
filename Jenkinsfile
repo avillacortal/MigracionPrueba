@@ -52,20 +52,20 @@ pipeline{
                         steps {
                              jacoco(
                              	 execPattern: 'target/**/*.exec',
-                             	 classPattern:'target/classes',
-                             	 sourcePattern:'src',
-                             	 exclusionPattern:'**/*Test*.class'
+                             	 classPattern: 'target/classes',
+                             	sourcePattern: 'src',
+                             	 exclusionPattern: '**/*Test*.class'
                           
                              )
                              
-                           publishHTML([allowMissing: true,
-                               alwaysLinkToLastBuild: true,
-                               keepAll:false,
-                               reportDir:'target/jacoco-report/',
-                               reportFiles: 'index.html',
-                               reportName: 'Code coverage Report',
-                               reportTitles:'Code Coverage Report'
-                           ])  
+                           publishHTML (target: [
+                            allowMissing: false,
+                            alwaysLinkToLastBuild: false,
+                            keepAll: true,
+                            reportDir: 'coverage',
+                            reportFiles: 'index.html',
+                            reportName: "RCov Report"
+                            ]) 
                            junit(
                            
                            allowEmptyResults: true,
