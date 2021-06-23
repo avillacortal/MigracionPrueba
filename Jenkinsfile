@@ -67,6 +67,12 @@ pipeline{
                                reportName: 'Code coverage Report',
                                reportTitles:'Code Coverage Report'
                            ])  
+                           junit(
+                           
+                           allowEmptyResults: true,
+                           testResults: '**TEST/-*.xml'
+                           
+                           )
                         
                         }
            
