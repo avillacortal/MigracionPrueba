@@ -1,4 +1,3 @@
-
 pipeline{
     agent{
         node{
@@ -64,7 +63,7 @@ pipeline{
                                keepAll:false,
                                reportDir:'target/jacoco/-report/',
                                reportFiles: 'index.html',
-                               reportName: Code coverage Report,
+                               reportName: 'Code coverage Report',
                                reportTitles:'Code Coverage Report'
                            ])  
                         
