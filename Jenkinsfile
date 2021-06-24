@@ -83,7 +83,7 @@ pipeline{
              script {
             echo "** SONARQUBE **"
             withSonarQubeEnv('SonarQube') {
-                bat "mvn clean verify sonar:sonar -Dsonar.login=ad5d94eb7e4d87f872640f41df3b3281496d111c"
+                bat "mvn clean verify sonar:sonar -Dsonar.login=Stefanini@2021"
                 }
             }
              }
