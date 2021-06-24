@@ -18,7 +18,7 @@ pipeline{
                echo "Realizando el Build"
                script{
                echo "****MAVEN BUILD****"
-                 bat "mvn clean package -P dev -DskipTests"
+                 bat "mvn clean package -P dev -DskipTests "
                  
                }
             }
@@ -43,10 +43,10 @@ pipeline{
                 	}
                 }
   
-          }    
+           }    
         
-                   stage("Construccion de reportes con  Jacoco") {
-            steps {
+            stage("Construccion de reportes con  Jacoco") {
+             steps {
                 jacoco(
                     execPattern: 'target/**/*.exec',
                     classPattern: 'target/classes',
@@ -66,23 +66,30 @@ pipeline{
                     testResults: '**/TEST-*.xml'
                 )
             }
-        }
+          }
 						
 
             stage ("Test integración/componente") {
                 steps{
                 echo "Realizando test componentes"
                 }
-            } 
-            stage ("Code  quality") {
-                steps{
-                echo "Realizando test UI"
+            }
+
+         stage("Quality Test"){
+            environment {
+             def scannerHome = tool 'SonarQubeScanner'
+            }
+            steps{
+             script {
+            echo "** SONARQUBE **"
+            withSonarQubeEnv('SonarQube') {
+                bat "mvn clean verify sonar:sonar -Dsonar.login=9d7f4542caf4b08903fac179c4e726ea344b0f61"
                 }
             }
-            
-            
-             
-            stage ("Security Scan") {
+             }
+            }
+  
+             stage ("Security Scan") {
                 steps{
                 echo "Realizando test"
                 }
@@ -92,7 +99,7 @@ pipeline{
            
        }
         
-        stage("Artefact o Imagenes"){
+      /*  stage("Artefact o Imagenes"){
             steps{
                 echo "Realizando el  Artifact en Artifactory o Docker"
             }
@@ -101,7 +108,7 @@ pipeline{
             steps{
                 echo "Realizando Deploy en el ambiente desarrollo"
             }
-        }
+        }*/
     
       }
-    }  
+    } 
