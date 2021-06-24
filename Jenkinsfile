@@ -45,33 +45,7 @@ pipeline{
   
           }    
         
-          stage('Build Reports'){
-           
-                        steps {
-                             jacoco(
-                             	 execPattern: 'target/**/*.exec',
-                             	 classPattern: 'target/classes',
-                             	sourcePattern: 'src',
-                             	 exclusionPattern: '**/*Test*.class'
-                          
-                             )
-                             
-                           publishHTML ([allowMissing: true,
-                           alwaysLinkToLastBuild: true,
-			               keepAll: false,
-			                reportDir: 'target/jacoco-report/',
-                            reportFiles: 'index.html',
-                            reportName: 'Code coverage Report',
-			                reportTitles: 'Code coverage Report'
-                            ]) 
-                           junit(
-                           
-                           allowEmptyResults: true,
-                           testResults: '**TEST-*.xml'
-                           
-                           )
-                        
-                  }
+          
 						
 
             stage ("Test integración/componente") {
