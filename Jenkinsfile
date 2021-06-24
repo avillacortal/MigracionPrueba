@@ -57,13 +57,12 @@ pipeline{
                              )
                              
                            publishHTML ([allowMissing: true,
-                            alwaysLinkToLastBuild: true,
-							keepAll: false,
-							reportDir: 'target/jacoco-report/',
-          
+                           alwaysLinkToLastBuild: true,
+			               keepAll: false,
+			                reportDir: 'target/jacoco-report/',
                             reportFiles: 'index.html',
                             reportName: 'Code coverage Report',
-							reportTitles: 'Code coverage Report'
+			                reportTitles: 'Code coverage Report'
                             ]) 
                            junit(
                            
@@ -74,8 +73,7 @@ pipeline{
                         
                   }
 						
-						
-			}
+
             stage ("Test integración/componente") {
                 steps{
                 echo "Realizando test componentes"
