@@ -99,7 +99,7 @@ pipeline{
            
        }
         
-      /*  stage("Artefact o Imagenes"){
+      /*  stage("Artefact o Imageness"){
             steps{
                 echo "Realizando el  Artifact en Artifactory o Docker"
             }
@@ -112,3 +112,4 @@ pipeline{
     
       }
     } 
+ 
