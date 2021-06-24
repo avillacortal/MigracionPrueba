@@ -69,7 +69,7 @@ pipeline{
         }
 						
 
-          /*  stage ("Test integración/componente") {
+            stage ("Test integración/componente") {
                 steps{
                 echo "Realizando test componentes"
                 }
