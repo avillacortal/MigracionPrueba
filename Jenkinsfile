@@ -45,8 +45,8 @@ pipeline{
   
           }    
         
-                   stage("Construccion de reportes con  Jacoco") {
-            steps {
+            stage("Construccion de reportes con  Jacoco") {
+             steps {
                 jacoco(
                     execPattern: 'target/**/*.exec',
                     classPattern: 'target/classes',
@@ -69,7 +69,7 @@ pipeline{
         }
 						
 
-            stage ("Test integración/componente") {
+          /*  stage ("Test integración/componente") {
                 steps{
                 echo "Realizando test componentes"
                 }
@@ -82,7 +82,7 @@ pipeline{
             
             
              
-            stage ("Security Scan") {
+             stage ("Security Scan") {
                 steps{
                 echo "Realizando test"
                 }
@@ -92,7 +92,7 @@ pipeline{
            
        }
         
-        stage("Artefact o Imagenes"){
+      /*  stage("Artefact o Imagenes"){
             steps{
                 echo "Realizando el  Artifact en Artifactory o Docker"
             }
@@ -101,7 +101,8 @@ pipeline{
             steps{
                 echo "Realizando Deploy en el ambiente desarrollo"
             }
-        }
+        }*/
     
       }
     }  
+
