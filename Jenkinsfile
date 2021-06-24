@@ -18,7 +18,7 @@ pipeline{
                echo "Realizando el Build"
                script{
                echo "****MAVEN BUILD****"
-                 bat "mvn clean package -P dev -DskipTests"
+                 bat "mvn clean package -P dev -DskipTests "
                  
                }
             }
@@ -83,7 +83,7 @@ pipeline{
              script {
             echo "** SONARQUBE **"
             withSonarQubeEnv('SonarQube') {
-                bat "mvn clean verify sonar:sonar "
+                bat "mvn clean verify sonar:sonar -Dsonar.login=9d7f4542caf4b08903fac179c4e726ea344b0f61"
                 }
             }
              }
