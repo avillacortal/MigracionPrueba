@@ -43,7 +43,7 @@ pipeline{
                 	}
                 }
   
-          }    
+           }    
         
             stage("Construccion de reportes con  Jacoco") {
              steps {
@@ -66,22 +66,30 @@ pipeline{
                     testResults: '**/TEST-*.xml'
                 )
             }
-        }
+          }
 						
 
             stage ("Test integración/componente") {
                 steps{
                 echo "Realizando test componentes"
                 }
-            } 
-            stage ("Code  quality") {
-                steps{
-                echo "Realizando test UI"
-                }
             }
             
-            
              
+           stage("Quality Test"){
+            environment {
+             def scannerHome = tool 'SonarQubeScanner'
+            }
+            steps{
+             script {
+            echo "** SONARQUBE **"
+            withSonarQubeEnv('SonarQube') {
+                bat "mvn clean verify sonar:sonar -Dsonar.login=ad5d94eb7e4d87f872640f41df3b3281496d111c"
+                }
+            }
+             }
+            }
+  
              stage ("Security Scan") {
                 steps{
                 echo "Realizando test"
@@ -105,4 +113,3 @@ pipeline{
     
       }
     }  
-
