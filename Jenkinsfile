@@ -75,8 +75,7 @@ pipeline{
                 }
             }
 
-
-         /*  stage("Quality Test"){
+         stage("Quality Test"){
             environment {
              def scannerHome = tool 'SonarQubeScanner'
             }
@@ -98,7 +97,7 @@ pipeline{
             
            }
            
-       }*/
+       }
         
       /*  stage("Artefact o Imagenes"){
             steps{
@@ -113,5 +112,6 @@ pipeline{
     
       }
     }  
+
 
  
