@@ -45,7 +45,7 @@ pipeline{
   
           }    
         
-                   stage("Construcción de reportes con  Jacoco)") {
+                   stage("Construccion de reportes con  Jacoco") {
             steps {
                 jacoco(
                     execPattern: 'target/**/*.exec',
