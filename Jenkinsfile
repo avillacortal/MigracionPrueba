@@ -45,7 +45,7 @@ pipeline{
   
           }    
         
-                   stage("Build Reports of TU") {
+                   stage("Construcción de reportes con  Jacoco)") {
             steps {
                 jacoco(
                     execPattern: 'target/**/*.exec',
