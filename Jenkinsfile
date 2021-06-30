@@ -1,9 +1,6 @@
 pipeline{
-    agent{
-        node{
-            label 'nodos'
-        }
-    }
+    agent any
+        
     stages {
     
       stage("SCM"){
