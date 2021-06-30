@@ -83,7 +83,7 @@ pipeline{
              script {
             echo "** SONARQUBE **"
             withSonarQubeEnv('SonarQube') {
-                bat "mvn clean verify sonar:sonar -Dsonar.login=3fa08acd9f227f20f9fbab9f62ff60444d83b5dc"
+                bat "mvn clean verify sonar:sonar -Dsonar.projectKey=com.telefonica.b2b.fidelity:b2b-fidelity -Dsonar.login=3fa08acd9f227f20f9fbab9f62ff60444d83b5dc"
                 }
             }
              }
