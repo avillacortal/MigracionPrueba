@@ -33,7 +33,7 @@ pipeline{
                	  script {
                    
                    echo "******MAVEN BUILD****"
-                   bat "mvn clean package"
+                   bat "mvn clean package -P dev"
                   }      
                 } 
                 post {
