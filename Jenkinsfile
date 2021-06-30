@@ -15,7 +15,7 @@ pipeline{
                echo "Realizando el Build"
                script{
                echo "****MAVEN BUILD****"
-                 bat "mvn clean package -P dev -DskipTests "
+                 sh "mvn clean package -P dev -DskipTests "
                  
                }
             }
@@ -30,7 +30,7 @@ pipeline{
                	  script {
                    
                    echo "******MAVEN BUILD****"
-                   bat "mvn clean package"
+                   sh "mvn clean package"
                   }      
                 } 
                 post {
