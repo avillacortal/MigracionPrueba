@@ -72,7 +72,7 @@ pipeline{
                 }
             }
 
-         stage("Quality Test"){
+         /*stage("Quality Test"){
             environment {
              def scannerHome = tool 'SonarQubeScanner'
             }
@@ -84,7 +84,17 @@ pipeline{
                 }
             }
              }
+            }*/
+		stage('SonarQube analysis') {
+            steps{
+                script{
+                    def scannerHome= tool 'SonarQubeScanner'
+                    withSonarQubeEnv('SonarQubeServer') { // You can override the credential to be used
+                      sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=com.telefonica.b2b.fidelity:b2b-fidelity -Dsonar.sources=. -Dsonar.java.binaries=."
+                    }
+                }
             }
+        }  
   
              stage ("Security Scan") {
                 steps{
