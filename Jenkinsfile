@@ -46,7 +46,7 @@ pipeline{
                 }
             }
 
-         /*stage("Quality Test"){
+         stage("Quality Test"){
             environment {
              def scannerHome = tool 'SonarQubeScanner'
             }
@@ -54,12 +54,12 @@ pipeline{
              script {
             echo "** SONARQUBE **"
             withSonarQubeEnv('SonarQubeServer') {
-                sh "mvn clean verify sonar:sonar -Dsonar.projectKey=com.telefonica.b2b.fidelity:b2b-fidelity "
+                sh "mvn clean verify sonar:sonar -Dsonar.projectKey=com.telefonica.b2b.fidelity:b2b-fidelity-2 "
                 }
             }
              }
-            }*/
-		stage('SonarQube analysis') {
+            }
+		/*stage('SonarQube analysis') {
             steps{
                 script{
                     def scannerHome= tool 'SonarQubeScanner'
@@ -68,7 +68,7 @@ pipeline{
                     }
                 }
             }
-        }  
+        }*/  
   
              stage ("Security Scan") {
                 steps{
