@@ -31,9 +31,15 @@ pipeline{
                    
                    echo "******MAVEN BUILD****"
                    sh "mvn clean package"
+			  
                   }      
                 } 
-            
+             post {
+                
+                	success{
+                	    junit 'target/surefire-reports/**/*.xml'
+                	}
+                }
   
            }    
         
