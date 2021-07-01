@@ -46,7 +46,7 @@ pipeline{
                 }
             }
 
-         stage("Quality Test"){
+        /* stage("Quality Test"){
             environment {
              def scannerHome = tool 'SonarQubeScanner'
             }
@@ -58,8 +58,8 @@ pipeline{
                 }
             }
              }
-            }
-		/*stage('SonarQube analysis') {
+            }*/
+		stage('SonarQube analysis') {
             steps{
                 script{
                     def scannerHome= tool 'SonarQubeScanner'
@@ -68,7 +68,7 @@ pipeline{
                     }
                 }
             }
-        }*/  
+        }  
   
              stage ("Security Scan") {
                 steps{
