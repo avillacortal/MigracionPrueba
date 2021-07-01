@@ -79,8 +79,8 @@ pipeline{
             steps{
              script {
             echo "** SONARQUBE **"
-            withSonarQubeEnv('SonarQube') {
-                sh "mvn clean verify sonar:sonar -Dsonar.projectKey=com.telefonica.b2b.fidelity:b2b-fidelity -Dsonar.login=3fa08acd9f227f20f9fbab9f62ff60444d83b5dc"
+            withSonarQubeEnv('SonarQubeServer') {
+                sh "mvn clean verify sonar:sonar -Dsonar.projectKey=com.telefonica.b2b.fidelity:b2b-fidelity "
                 }
             }
              }
